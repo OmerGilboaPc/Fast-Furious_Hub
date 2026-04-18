@@ -13,6 +13,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Enter' && !loginScree
 function tryLogin() {
   const pw = document.getElementById('admin-password-input').value;
   if (pw === ADMIN_PASSWORD) {
+    document.getElementById('admin-login-error').classList.add('hidden');
     loginScreen.classList.add('hidden');
     adminApp.classList.remove('hidden');
     initAdmin();
