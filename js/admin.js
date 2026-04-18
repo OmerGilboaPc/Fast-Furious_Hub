@@ -72,7 +72,7 @@ function renderSection() {
 // ── Settings ──────────────────────────────────────────────────────────────────
 function settingsCard(title, fields) {
   return `<div class="admin-section-card">
-    <div class="admin-section-header"><h3>${title}</h3><button class="admin-save-btn settings-save-btn">💾 שמור שינויים</button></div>
+    <div class="admin-section-header"><h3>${title}</h3><button class="admin-save-btn settings-save-btn">💾 Save Changes</button></div>
     <div class="admin-section-body">
       <div class="admin-grid-2">
         ${fields.map(f => `
@@ -91,39 +91,39 @@ function settingsCard(title, fields) {
 }
 
 function renderSettingsGeneral() {
-  return settingsCard('🌐 כללי — שם ומיתוג', [
-    {key:'siteName',label:'שם האתר'},
-    {key:'primaryColor',label:'צבע ראשי',type:'color'},
-    {key:'heroTitle',label:'כותרת Hero'},
-    {key:'heroSubtitle',label:'תת-כותרת Hero',full:true},
-    {key:'heroCta1',label:'כפתור 1'},
-    {key:'heroCta2',label:'כפתור 2'},
-    {key:'statsMovies',label:'מספר סרטים'},
-    {key:'statsCharacters',label:'מספר דמויות'},
-    {key:'statsCars',label:'מספר רכבים'},
-    {key:'statsQuotes',label:'מספר ציטוטים'},
-    {key:'footerDesc',label:'תיאור Footer',full:true},
-    {key:'footerQuote',label:'ציטוט Footer',full:true},
-    {key:'footerQuoteAuthor',label:'מחבר ציטוט Footer'},
-    {key:'footerCredit',label:'שורת קרדיטים',full:true},
+  return settingsCard('🌐 General — Name & Branding', [
+    {key:'siteName',label:'Site Name'},
+    {key:'primaryColor',label:'Primary Color',type:'color'},
+    {key:'heroTitle',label:'Hero Title'},
+    {key:'heroSubtitle',label:'Hero Subtitle',full:true},
+    {key:'heroCta1',label:'Button 1'},
+    {key:'heroCta2',label:'Button 2'},
+    {key:'statsMovies',label:'Movies Count'},
+    {key:'statsCharacters',label:'Characters Count'},
+    {key:'statsCars',label:'Cars Count'},
+    {key:'statsQuotes',label:'Quotes Count'},
+    {key:'footerDesc',label:'Footer Description',full:true},
+    {key:'footerQuote',label:'Footer Quote',full:true},
+    {key:'footerQuoteAuthor',label:'Footer Quote Author'},
+    {key:'footerCredit',label:'Credits Line',full:true},
   ]);
 }
 
 function renderSettingsPages() {
   return [
-    settingsCard('🎬 עמוד סרטים', [{key:'moviesPageSubtitle',label:'תווית'},{key:'moviesPageTitle',label:'כותרת'},{key:'moviesPageDesc',label:'תיאור',full:true}]),
-    settingsCard('👥 עמוד דמויות', [{key:'charactersPageSubtitle',label:'תווית'},{key:'charactersPageTitle',label:'כותרת'},{key:'charactersPageDesc',label:'תיאור',full:true}]),
-    settingsCard('🚗 עמוד רכבים', [{key:'carsPageSubtitle',label:'תווית'},{key:'carsPageTitle',label:'כותרת'},{key:'carsPageDesc',label:'תיאור',full:true}]),
-    settingsCard('💬 עמוד ציטוטים', [{key:'quotesPageSubtitle',label:'תווית'},{key:'quotesPageTitle',label:'כותרת'},{key:'quotesPageDesc',label:'תיאור',full:true}]),
-    settingsCard('📰 עמוד חדשות', [{key:'newsPageSubtitle',label:'תווית'},{key:'newsPageTitle',label:'כותרת'},{key:'newsPageDesc',label:'תיאור',full:true}]),
+    settingsCard('🎬 Movies Page', [{key:'moviesPageSubtitle',label:'Label'},{key:'moviesPageTitle',label:'Title'},{key:'moviesPageDesc',label:'Description',full:true}]),
+    settingsCard('👥 Characters Page', [{key:'charactersPageSubtitle',label:'Label'},{key:'charactersPageTitle',label:'Title'},{key:'charactersPageDesc',label:'Description',full:true}]),
+    settingsCard('🚗 Cars Page', [{key:'carsPageSubtitle',label:'Label'},{key:'carsPageTitle',label:'Title'},{key:'carsPageDesc',label:'Description',full:true}]),
+    settingsCard('💬 Quotes Page', [{key:'quotesPageSubtitle',label:'Label'},{key:'quotesPageTitle',label:'Title'},{key:'quotesPageDesc',label:'Description',full:true}]),
+    settingsCard('📰 News Page', [{key:'newsPageSubtitle',label:'Label'},{key:'newsPageTitle',label:'Title'},{key:'newsPageDesc',label:'Description',full:true}]),
   ].join('');
 }
 
 function renderSettingsPaul() {
   return [
-    settingsCard('❤️ Hero', [{key:'paulWalkerDates',label:'תאריכים'},{key:'paulWalkerSubtitle',label:'תת-כותרת',full:true},{key:'paulWalkerHeroQuote',label:'ציטוט פס',full:true},{key:'paulWalkerHeroQuoteSource',label:'מקור'}]),
-    settingsCard('📝 ביוגרפיה', [{key:'paulWalkerBio',label:'ביוגרפיה (הפרד פסקאות בשורה ריקה)',full:true,type:'textarea',tall:true}]),
-    settingsCard('🌍 ROWW', [{key:'rowwTitle',label:'כותרת'},{key:'rowwDesc',label:'תיאור',full:true,type:'textarea'}]),
+    settingsCard('❤️ Hero', [{key:'paulWalkerDates',label:'Dates'},{key:'paulWalkerSubtitle',label:'Subtitle',full:true},{key:'paulWalkerHeroQuote',label:'Strip Quote',full:true},{key:'paulWalkerHeroQuoteSource',label:'Source'}]),
+    settingsCard('📝 Biography', [{key:'paulWalkerBio',label:'Biography (separate paragraphs with blank line)',full:true,type:'textarea',tall:true}]),
+    settingsCard('🌍 ROWW', [{key:'rowwTitle',label:'Title'},{key:'rowwDesc',label:'Description',full:true,type:'textarea'}]),
   ].join('');
 }
 
@@ -135,11 +135,10 @@ function bindSettings() {
       card.querySelectorAll('[data-key]').forEach(el => { updates[el.dataset.key] = el.value; });
       btn.textContent = '...'; btn.disabled = true;
       await setDoc(doc(db,'settings','general'), updates, {merge:true});
-      btn.textContent = '✅ נשמר!'; btn.disabled = false;
-      setTimeout(() => { btn.textContent = '💾 שמור שינויים'; }, 2000);
+      btn.textContent = '✅ Saved!'; btn.disabled = false;
+      setTimeout(() => { btn.textContent = '💾 Save Changes'; }, 2000);
     });
   });
-  // Color pickers
   document.querySelectorAll('[data-key$="-picker"]').forEach(picker => {
     const key = picker.dataset.key.replace('-picker','');
     picker.addEventListener('input', () => {
@@ -152,14 +151,14 @@ function bindSettings() {
 }
 
 // ── Collections ───────────────────────────────────────────────────────────────
-function movieFields()  { return [{key:'order',label:'סדר'},{key:'year',label:'שנה'},{key:'title',label:'כותרת',full:true},{key:'director',label:'במאי'},{key:'image',label:'URL פוסטר',full:true}]; }
-function charFields()   { return [{key:'order',label:'סדר'},{key:'name',label:'שם'},{key:'actor',label:'שחקן'},{key:'image',label:'URL תמונה',full:true}]; }
-function carFields()    { return [{key:'order',label:'סדר'},{key:'name',label:'שם הרכב',full:true},{key:'model',label:'מודל'},{key:'hp',label:'כוח סוס'},{key:'driver',label:'נהג'},{key:'image',label:'URL תמונה',full:true}]; }
-function quoteFields()  { return [{key:'order',label:'סדר'},{key:'text',label:'ציטוט',full:true},{key:'character',label:'דמות'},{key:'movie',label:'סרט'}]; }
-function newsFields()   { return [{key:'order',label:'סדר'},{key:'category',label:'קטגוריה'},{key:'date',label:'תאריך'},{key:'title',label:'כותרת',full:true},{key:'subtitle',label:'תת-כותרת',full:true},{key:'body',label:'גוף',full:true,type:'textarea'},{key:'image',label:'URL תמונה',full:true}]; }
-function tlFields()     { return [{key:'order',label:'סדר'},{key:'year',label:'שנה'},{key:'text',label:'תיאור',full:true}]; }
-function filmoFields()  { return [{key:'order',label:'סדר'},{key:'movie',label:'סרט'},{key:'year',label:'שנה'},{key:'role',label:'תפקיד'}]; }
-function pqFields()     { return [{key:'order',label:'סדר'},{key:'text',label:'ציטוט',full:true},{key:'author',label:'מחבר'}]; }
+function movieFields()  { return [{key:'order',label:'Order'},{key:'year',label:'Year'},{key:'title',label:'Title',full:true},{key:'director',label:'Director'},{key:'image',label:'Poster URL',full:true}]; }
+function charFields()   { return [{key:'order',label:'Order'},{key:'name',label:'Name'},{key:'actor',label:'Actor'},{key:'image',label:'Image URL',full:true}]; }
+function carFields()    { return [{key:'order',label:'Order'},{key:'name',label:'Car Name',full:true},{key:'model',label:'Model'},{key:'hp',label:'Horsepower'},{key:'driver',label:'Driver'},{key:'image',label:'Image URL',full:true}]; }
+function quoteFields()  { return [{key:'order',label:'Order'},{key:'text',label:'Quote',full:true},{key:'character',label:'Character'},{key:'movie',label:'Movie'}]; }
+function newsFields()   { return [{key:'order',label:'Order'},{key:'category',label:'Category'},{key:'date',label:'Date'},{key:'title',label:'Title',full:true},{key:'subtitle',label:'Subtitle',full:true},{key:'body',label:'Body',full:true,type:'textarea'},{key:'image',label:'Image URL',full:true}]; }
+function tlFields()     { return [{key:'order',label:'Order'},{key:'year',label:'Year'},{key:'text',label:'Description',full:true}]; }
+function filmoFields()  { return [{key:'order',label:'Order'},{key:'movie',label:'Movie'},{key:'year',label:'Year'},{key:'role',label:'Role'}]; }
+function pqFields()     { return [{key:'order',label:'Order'},{key:'text',label:'Quote',full:true},{key:'author',label:'Author'}]; }
 
 function renderCollection(colName, fields) {
   const items = DATA[colName] || [];
@@ -169,15 +168,15 @@ function renderCollection(colName, fields) {
       <div id="items-list">
         ${items.map(item => renderItemCard(item, fields, colName)).join('')}
       </div>
-      <button class="admin-add-btn" id="add-new-btn">➕ הוסף פריט</button>
+      <button class="admin-add-btn" id="add-new-btn">➕ Add Item</button>
       <div id="new-item-form" class="hidden admin-item-card new-item" style="margin-top:12px">
-        <div style="font-family:var(--font-display);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px">➕ פריט חדש</div>
+        <div style="font-family:var(--font-display);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px">➕ New Item</div>
         <div class="admin-grid-2">
           ${fields.map(f=>`<div class="admin-field${f.full?' full-width':''}"><label>${f.label}</label>${f.type==='textarea'?`<textarea class="admin-textarea" data-newkey="${f.key}"></textarea>`:`<input class="admin-input" data-newkey="${f.key}" value="">`}</div>`).join('')}
         </div>
         <div class="admin-item-actions">
-          <button class="admin-cancel-btn" id="cancel-new-btn">ביטול</button>
-          <button class="admin-save-btn" id="confirm-new-btn">✅ הוסף</button>
+          <button class="admin-cancel-btn" id="cancel-new-btn">Cancel</button>
+          <button class="admin-save-btn" id="confirm-new-btn">✅ Add</button>
         </div>
       </div>
     </div>
@@ -190,14 +189,13 @@ function renderItemCard(item, fields, colName) {
       ${fields.map(f=>`<div class="admin-field${f.full?' full-width':''}"><label>${f.label}</label>${f.type==='textarea'?`<textarea class="admin-textarea" data-field="${f.key}">${item[f.key]||''}</textarea>`:`<input class="admin-input" data-field="${f.key}" value="${(item[f.key]||'').toString().replace(/"/g,'&quot;')}">`}</div>`).join('')}
     </div>
     <div class="admin-item-actions">
-      <button class="admin-delete-btn item-delete-btn">🗑 מחק</button>
-      <button class="admin-save-btn item-save-btn">💾 שמור</button>
+      <button class="admin-delete-btn item-delete-btn">🗑 Delete</button>
+      <button class="admin-save-btn item-save-btn">💾 Save</button>
     </div>
   </div>`;
 }
 
 function bindCollection(colName, fields) {
-  // Save existing
   document.querySelectorAll('.item-save-btn').forEach(btn => {
     btn.addEventListener('click', async () => {
       const card = btn.closest('.admin-item-card');
@@ -207,18 +205,16 @@ function bindCollection(colName, fields) {
       btn.textContent = '...'; btn.disabled = true;
       await updateDoc(doc(db, colName, id), updates);
       btn.textContent = '✅'; btn.disabled = false;
-      setTimeout(() => { btn.textContent = '💾 שמור'; }, 1500);
+      setTimeout(() => { btn.textContent = '💾 Save'; }, 1500);
     });
   });
-  // Delete
   document.querySelectorAll('.item-delete-btn').forEach(btn => {
     btn.addEventListener('click', async () => {
-      if (!confirm('למחוק?')) return;
+      if (!confirm('Delete this item?')) return;
       const id = btn.closest('.admin-item-card').dataset.id;
       await deleteDoc(doc(db, colName, id));
     });
   });
-  // Add new
   document.getElementById('add-new-btn').addEventListener('click', () => {
     document.getElementById('new-item-form').classList.remove('hidden');
     document.getElementById('add-new-btn').classList.add('hidden');
@@ -237,24 +233,24 @@ function bindCollection(colName, fields) {
 // ── DB Tools ──────────────────────────────────────────────────────────────────
 function renderDB() {
   return `<div class="admin-section-card">
-    <div class="admin-section-header"><h3>🔧 כלי דאטאבייס</h3></div>
+    <div class="admin-section-header"><h3>🔧 Database Tools</h3></div>
     <div class="admin-section-body">
-      <p style="font-size:14px;color:var(--gray-600);margin-bottom:16px">לחץ למטה כדי למלא את Firebase בכל התוכן המקורי — סרטים, דמויות, רכבים, ציטוטים ועוד.</p>
+      <p style="font-size:14px;color:var(--gray-600);margin-bottom:16px">Click below to seed Firebase with all default content — movies, characters, cars, quotes and more.</p>
       <div id="db-status"></div>
-      <button class="admin-save-btn" id="seed-btn" style="background:#1a1a2e">🌱 מלא דאטאבייס בתוכן התחלתי</button>
+      <button class="admin-save-btn" id="seed-btn" style="background:#1a1a2e">🌱 Seed Database with Default Content</button>
     </div>
   </div>`;
 }
 function bindDB() {
   document.getElementById('seed-btn').addEventListener('click', async () => {
-    if (!confirm('זה ימלא את Firebase בתוכן ברירת המחדל. להמשיך?')) return;
+    if (!confirm('This will fill Firebase with default content. Continue?')) return;
     const statusEl = document.getElementById('db-status');
-    statusEl.innerHTML = '<div class="admin-success">ממלא...</div>';
+    statusEl.innerHTML = '<div class="admin-success">Seeding...</div>';
     try {
       await seedDatabase();
-      statusEl.innerHTML = '<div class="admin-success">✅ הדאטאבייס מולא בהצלחה!</div>';
+      statusEl.innerHTML = '<div class="admin-success">✅ Database seeded successfully!</div>';
     } catch(e) {
-      statusEl.innerHTML = `<div class="admin-error">❌ שגיאה: ${e.message}</div>`;
+      statusEl.innerHTML = `<div class="admin-error">❌ Error: ${e.message}</div>`;
     }
   });
 }
