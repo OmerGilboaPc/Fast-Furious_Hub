@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,13 +12,13 @@
 <div id="admin-login-screen" class="admin-login">
   <div class="admin-login-card">
     <div class="admin-login-title">🔥 F&F <span>ADMIN</span></div>
-    <div class="admin-login-sub">הכנס סיסמת אדמין כדי לנהל את האתר</div>
-    <div id="admin-login-error" class="admin-error hidden">סיסמה שגויה</div>
+    <div class="admin-login-sub">Enter your admin password to manage the site</div>
+    <div id="admin-login-error" class="admin-error hidden">Incorrect password</div>
     <div class="admin-field">
-      <label>סיסמת אדמין</label>
+      <label>Admin Password</label>
       <input type="password" id="admin-password-input" class="admin-input" placeholder="••••••••" />
     </div>
-    <button class="admin-save-btn" id="admin-login-btn" style="width:100%;justify-content:center">🔓 כניסה</button>
+    <button class="admin-save-btn" id="admin-login-btn" style="width:100%;justify-content:center">🔓 Sign In</button>
   </div>
 </div>
 
@@ -29,40 +29,40 @@
   <div class="admin-sidebar">
     <div class="admin-sidebar-logo">🔥 F&F <span>ADMIN</span></div>
 
-    <div class="admin-nav-section">הגדרות</div>
-    <button class="admin-nav-item active" data-section="general">⚙️ הגדרות כלליות</button>
-    <button class="admin-nav-item" data-section="pages">📄 כותרות עמודים</button>
+    <div class="admin-nav-section">Settings</div>
+    <button class="admin-nav-item active" data-section="general">⚙️ General Settings</button>
+    <button class="admin-nav-item" data-section="pages">📄 Page Titles</button>
 
-    <div class="admin-nav-section">תוכן</div>
-    <button class="admin-nav-item" data-section="movies">🎬 סרטים</button>
-    <button class="admin-nav-item" data-section="characters">👥 דמויות</button>
-    <button class="admin-nav-item" data-section="cars">🚗 רכבים</button>
-    <button class="admin-nav-item" data-section="quotes">💬 ציטוטים</button>
-    <button class="admin-nav-item" data-section="news">📰 חדשות</button>
+    <div class="admin-nav-section">Content</div>
+    <button class="admin-nav-item" data-section="movies">🎬 Movies</button>
+    <button class="admin-nav-item" data-section="characters">👥 Characters</button>
+    <button class="admin-nav-item" data-section="cars">🚗 Cars</button>
+    <button class="admin-nav-item" data-section="quotes">💬 Quotes</button>
+    <button class="admin-nav-item" data-section="news">📰 News</button>
 
     <div class="admin-nav-section">Paul Walker</div>
-    <button class="admin-nav-item" data-section="paul">❤️ טקסטים</button>
+    <button class="admin-nav-item" data-section="paul">❤️ Texts</button>
     <button class="admin-nav-item" data-section="paulTimeline">📅 Timeline</button>
     <button class="admin-nav-item" data-section="paulFilmography">🎬 Filmography</button>
-    <button class="admin-nav-item" data-section="paulQuotes">💬 ציטוטים</button>
+    <button class="admin-nav-item" data-section="paulQuotes">💬 Quotes</button>
 
-    <div class="admin-nav-section">מערכת</div>
-    <button class="admin-nav-item" data-section="db">🔧 כלי דאטאבייס</button>
+    <div class="admin-nav-section">System</div>
+    <button class="admin-nav-item" data-section="db">🔧 Database Tools</button>
 
     <div class="sidebar-bottom">
-      <a href="index.html" class="admin-nav-item">🌐 חזור לאתר</a>
+      <a href="index.html" class="admin-nav-item">🌐 Back to Site</a>
     </div>
   </div>
 
   <!-- Main -->
   <div class="admin-main">
     <div class="admin-topbar">
-      <div class="admin-topbar-title" id="admin-topbar-title">⚙️ הגדרות כלליות</div>
-      <div class="admin-topbar-sub">שינויים נשמרים ישירות ל-Firebase</div>
+      <div class="admin-topbar-title" id="admin-topbar-title">⚙️ General Settings</div>
+      <div class="admin-topbar-sub">Changes are saved directly to Firebase</div>
     </div>
     <div class="admin-content">
       <div id="admin-section-content">
-        <div style="display:flex;align-items:center;justify-content:center;min-height:200px;color:#999;font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">טוען...</div>
+        <div style="display:flex;align-items:center;justify-content:center;min-height:200px;color:#999;font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">Loading...</div>
       </div>
     </div>
   </div>
