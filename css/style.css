@@ -97,7 +97,7 @@ img { max-width: 100%; }
 
 /* HERO */
 .hero { position: relative; min-height: 520px; display: flex; align-items: flex-end; overflow: hidden; background: var(--black); }
-.hero-bg { position: absolute; inset: 0; background-image: url('https://wallpapers.com/images/featured/cool-fast-and-furious-6obkwntqke1bhsmr.jpg'); background-size: cover; background-position: center top; opacity: 0.45; }
+.hero-bg { position: absolute; inset: 0; background-image: url('https://media.themoviedb.org/t/p/w780/z5A5W3WYJc3UVEWljSGwdjDgQ0j.jpg'); background-size: cover; background-position: center top; opacity: 0.45; }
 .hero-content { position: relative; z-index: 1; padding: 80px 48px; max-width: 700px; }
 .hero-label { font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: var(--red); text-transform: uppercase; margin-bottom: 12px; }
 .hero-title { font-family: var(--font-display); font-size: 96px; font-weight: 800; line-height: 0.9; text-transform: uppercase; color: var(--white); margin-bottom: 20px; }
