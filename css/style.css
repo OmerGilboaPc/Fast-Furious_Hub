@@ -72,7 +72,7 @@ img { max-width: 100%; }
 
 /* AUTH SCREEN */
 .auth-screen { min-height: 100vh; background: var(--black); display: flex; align-items: center; justify-content: center; position: relative; }
-.auth-bg { position: fixed; inset: 0; background-image: url('https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=1600&q=60'); background-size: cover; background-position: center; opacity: 0.15; pointer-events: none; }
+.auth-bg { position: fixed; inset: 0; background-image: url('https://wallpapers.com/images/featured/cool-fast-and-furious-6obkwntqke1bhsmr.jpg'); background-size: cover; background-position: center; opacity: 0.15; pointer-events: none; }
 .auth-card { position: relative; z-index: 1; background: white; border-radius: 12px; padding: 40px; width: 380px; box-shadow: 0 24px 60px rgba(0,0,0,0.4); }
 .auth-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; font-family: var(--font-display); font-weight: 800; font-size: 20px; letter-spacing: 0.05em; }
 .auth-logo span { color: var(--red); }
