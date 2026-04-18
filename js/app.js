@@ -379,7 +379,7 @@ function renderNews() {
 function renderPaulWalker() {
   return `
     <div class="pw-hero">
-      <div class="pw-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=800&q=80')"></div>
+      <div class="pw-hero-bg" style="background-image:url('https://images6.alphacoders.com/139/thumb-1920-1393457.jpg')"></div>
       <div class="pw-hero-content animate-fade-up">
         <div class="pw-badge">❤️ In Memoriam</div>
         <div class="pw-name1">PAUL</div>
