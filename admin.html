@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>F&F Hub — Admin</title>
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+
+<!-- ── LOGIN ─────────────────────────────────────────────────────────────── -->
+<div id="admin-login-screen" class="admin-login">
+  <div class="admin-login-card">
+    <div class="admin-login-title">🔥 F&F <span>ADMIN</span></div>
+    <div class="admin-login-sub">הכנס סיסמת אדמין כדי לנהל את האתר</div>
+    <div id="admin-login-error" class="admin-error hidden">סיסמה שגויה</div>
+    <div class="admin-field">
+      <label>סיסמת אדמין</label>
+      <input type="password" id="admin-password-input" class="admin-input" placeholder="••••••••" />
+    </div>
+    <button class="admin-save-btn" id="admin-login-btn" style="width:100%;justify-content:center">🔓 כניסה</button>
+  </div>
+</div>
+
+<!-- ── ADMIN APP ─────────────────────────────────────────────────────────── -->
+<div id="admin-app" class="admin-layout hidden">
+
+  <!-- Sidebar -->
+  <div class="admin-sidebar">
+    <div class="admin-sidebar-logo">🔥 F&F <span>ADMIN</span></div>
+
+    <div class="admin-nav-section">הגדרות</div>
+    <button class="admin-nav-item active" data-section="general">⚙️ הגדרות כלליות</button>
+    <button class="admin-nav-item" data-section="pages">📄 כותרות עמודים</button>
+
+    <div class="admin-nav-section">תוכן</div>
+    <button class="admin-nav-item" data-section="movies">🎬 סרטים</button>
+    <button class="admin-nav-item" data-section="characters">👥 דמויות</button>
+    <button class="admin-nav-item" data-section="cars">🚗 רכבים</button>
+    <button class="admin-nav-item" data-section="quotes">💬 ציטוטים</button>
+    <button class="admin-nav-item" data-section="news">📰 חדשות</button>
+
+    <div class="admin-nav-section">Paul Walker</div>
+    <button class="admin-nav-item" data-section="paul">❤️ טקסטים</button>
+    <button class="admin-nav-item" data-section="paulTimeline">📅 Timeline</button>
+    <button class="admin-nav-item" data-section="paulFilmography">🎬 Filmography</button>
+    <button class="admin-nav-item" data-section="paulQuotes">💬 ציטוטים</button>
+
+    <div class="admin-nav-section">מערכת</div>
+    <button class="admin-nav-item" data-section="db">🔧 כלי דאטאבייס</button>
+
+    <div class="sidebar-bottom">
+      <a href="index.html" class="admin-nav-item">🌐 חזור לאתר</a>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div class="admin-main">
+    <div class="admin-topbar">
+      <div class="admin-topbar-title" id="admin-topbar-title">⚙️ הגדרות כלליות</div>
+      <div class="admin-topbar-sub">שינויים נשמרים ישירות ל-Firebase</div>
+    </div>
+    <div class="admin-content">
+      <div id="admin-section-content">
+        <div style="display:flex;align-items:center;justify-content:center;min-height:200px;color:#999;font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">טוען...</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script type="module" src="js/admin.js"></script>
+</body>
+</html>
